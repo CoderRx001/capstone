@@ -21,5 +21,12 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get '/pages/:page' => 'pages#show'
+      #/pages/about
+      #/pages/menu
+      #/pages/pricing
+
+
+
 end
 
