@@ -1,18 +1,1 @@
-<div class="row">
-  <h1>Cornucopia App</h1>
-  <% @foods.each do |food| %>
-    <h2><a href="/foods/<%= food.id %>"><%= food.name %></a></h2>
-      <div class="col-md-4">
-        <div class="thumbnail well">
-        <h4><%= food.name %></h4>
-        <img src="<%= food.image %>" alt="<%= food.name %>">
-        <h3><%= food.category %></h3>
-        <h3><%= food.item_name %></h3>
-        <h3><%= food.description %></h3>
-        </div>
-      </div>
-  <% end %>
-</div>
-
-<div class="row">
-</div>
+<h1>Your Current Items</h1>

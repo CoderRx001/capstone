@@ -11,6 +11,12 @@ class FoodsController < ApplicationController
       @foods = Category.find_by(name: category).foods
     end
 
+    if search_term
+      @food = Food.where(
+                          "name iLIKE ? OR description iLIKE?",
+                           "%#{search_term}%",
+                           "%#{search_term}%"
+                           )
   end
 
   def new
@@ -18,7 +24,18 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new()
+    @food = Food.new(
+                    name: params[:name],
+                    type: params[:type],
+                    number: params[:number],
+                    expire: params[:expire]
+                    )
+    if @food.save
+      flash[:success] = "Item NOW in your Fridge"
+      redirect_to "/foods/#{food.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def show

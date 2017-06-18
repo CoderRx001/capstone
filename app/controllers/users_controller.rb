@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def new
-    
+    render 'new.html.erb'
   end
 
   def create
@@ -12,11 +12,12 @@ class UsersController < ApplicationController
                     password_confirmation: params[:password_confirmation]
                     )
     if user.save
-      sessions[:user_id] = user.id 
+      session[:user_id] = user.id 
       flash[:success] = "You have Created your Account"
       redirect_to '/'
     else
       flash[:warning] = 'Invalid email or password'
       redirect_to '/sign_up'
+    end
   end
 end
