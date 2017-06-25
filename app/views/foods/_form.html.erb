@@ -1,0 +1,16 @@
+<%= form_for @food do |f| %>
+  <div>
+    Category: <%= f.text_field :category %>
+  </div>
+  <div>
+    Item Name: <%= f.text_field :item_name %>
+  </div>
+  <div>
+    Item Number: <%= f.text_field :item_number %>
+  </div>
+  <div>
+    Expiration: <%= f.text_field :expiration %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

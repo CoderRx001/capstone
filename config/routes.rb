@@ -3,17 +3,28 @@ Rails.application.routes.draw do
 
   get '/' => 'pages#index'
   get '/pages/:page' => 'pages#show'
+  resources :pages, only: [:index, :show]
       #/pages/about
       #/pages/menu
       #/pages/pricing
 
-  get '/foods' => 'foods#index'
-  get '/foods/new' => 'foods#new'
-  post '/foods' => 'foods#create'
-  get '/foods/:id' => 'foods#show'
-  get '/foods/:id/edit' => 'foods#edit'
-  patch '/foods:id' => 'foods#update'
-  delete '/foods/:id' => 'foods#destroy' 
+  resources :recipes
+  # get '/recipes' => 'recipes#index'
+  # get '/recipes/new' => 'recipes#new'
+  # post '/recipes' => 'recipes#create'
+  # get '/recipes/:id(.:' => 'recipes#show'
+  # get '/recipes/:id/edit' => 'recipes#edit'
+  # patch '/recipes/:id' => 'recipes#update'
+  # delete '/recipes/:id' => 'recipes#destroy'
+
+  resources :foods
+  # get '/foods' => 'foods#index'
+  # get '/foods/new' => 'foods#new'
+  # post '/foods' => 'foods#create'
+  # get '/foods/:id' => 'foods#show'
+  # get '/foods/:id/edit' => 'foods#edit'
+  # patch '/foods/:id' => 'foods#update'
+  # delete '/foods/:id' => 'foods#destroy' 
 
   #
 

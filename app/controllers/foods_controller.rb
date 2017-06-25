@@ -10,13 +10,6 @@ class FoodsController < ApplicationController
     if category
       @foods = Category.find_by(name: category).foods
     end
-
-    if search_term
-      @food = Food.where(
-                          "name iLIKE ? OR description iLIKE?",
-                           "%#{search_term}%",
-                           "%#{search_term}%"
-                           )
   end
 
   def new
@@ -24,30 +17,26 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(
-                    name: params[:name],
-                    type: params[:type],
-                    number: params[:number],
-                    expire: params[:expire]
-                    )
-    if @food.save
-      flash[:success] = "Item NOW in your Fridge"
-      redirect_to "/foods/#{food.id}"
-    else
-      render 'new.html.erb'
-    end
+    @food = Food.new(food_params)
+    @food.save
+      flash[:success] = "Item NOW in your Pantry"
+      redirect_to "/foods/#{@food.id}"
   end
 
   def show
-    @food = Food.find(params[:id])
+    food
   end
 
   def edit
-    @food = Food.find(params[:id])
+    food
   end
 
   def update
-    food = Food.find(params[:id])
+    if food.update_attributes(food_params)
+      redirect_to food
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -57,5 +46,16 @@ class FoodsController < ApplicationController
     redirect_to "/"
   end
 
-end
+private
 
+  def food_params
+    params.require(:food).permit(:category, :item_name, :item_number, :expiration)
+    
+  end
+
+  def food
+    @food ||= Food.find(params[:id])
+  end
+
+
+end
