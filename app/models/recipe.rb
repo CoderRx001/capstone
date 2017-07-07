@@ -1,7 +1,10 @@
 class Recipe < ApplicationRecord
-  has_many :recipe_item
-  has_many :food, :through => :recipe_item 
+  has_many :ingredients
+  belongs_to :food, optional: true
 
+  attr_accessor :ingredient_names
+
+  before_save :save_ingredient_names
 
   def ingredient_list
     ingredients.split(", ")
@@ -29,5 +32,13 @@ class Recipe < ApplicationRecord
 
   def chef
     # user.name
+  end
+
+  private 
+
+  def save_ingredient_names
+    if @ingredient_names
+      @ingredient_names.split(",").map { |name| self.ingredients.where(name: name.strip).first_or_create! }
+    end
   end
 end

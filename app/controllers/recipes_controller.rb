@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :load_recipe, only: [:show, :edit, :update, :destroy]
+
   def index
     @recipes = Recipe.all
     sort_attribute = params[:sort]
@@ -19,35 +21,36 @@ class RecipesController < ApplicationController
   end
 
   def show
-    recipe
+    @ingredients = @recipe.ingredients
+    @foods = Food.all
+    @intersection_count = (@ingredients.pluck(:name) & @foods.pluck(:item_name)).count
   end
 
   def edit
-    recipe
   end
+
   def update
-    if recipe.update_attributes(recipe_params)
-      redirect_to recipe
+    if @recipe.update_attributes(recipe_params)
+      redirect_to @recipe
     else
       render :edit
     end
   end
 
   def destroy
-    recipe = Recipe.find(params[:id])
-    recipe.destroy
+    @recipe.destroy
     flash[:warning] = "Recipe Destroyed"
     redirect_to "/"
   end
 
-private
+  private
 
   def recipe_params
-    params.permit(:title, :image, :ingredients, :directions, :prep_time, :user_id)
+    params.permit(:title, :image, :ingredient_names, :directions, :prep_time, :user_id)
     
   end
 
-  def recipe
-    @recipe ||= Recipe.find(params[:id])
+  def load_recipe
+    @recipe = Recipe.find(params[:id])
   end
 end

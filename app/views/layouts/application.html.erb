@@ -1,78 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CapstoneApp</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="construction is awesome bootstrap responsive construction business theme">
+    <meta name="keywords" content="construction, business, construction business, responsive, parallax, business theme">
+    <meta name="author" content="templateninja">
+    <title>Construction</title>
+
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:300,500" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/Pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/owl.theme.css" rel="stylesheet">
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/plugins/html5shiv.min.js"></script>
+      <script src="/plugins/respond.min.js"></script>
+    <![endif]-->
+
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
+  <body id="home" class="home">
 
-  <body>
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Cornucopia</a>
-    </div>
+    <!-- begin:header -->
+    <div class="header" data-parallax="scroll" data-image-src="/img/horn_of_cornucopia.jpg">
+      <!-- begin:topbar -->
+      <div id="topbar" class="topbar">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="nav-utility">
+                <span class="nav-item">Your source for maintaining your budget on food and recipes.</span>
+              </div><!-- .nav-utility -->
+            </div><!-- .col-sm-8 -->
+            <div class="col-sm-4 hidden-xs">
+              <div class="nav-utility nav-right">
+                <a href="#" class="nav-item"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="nav-item"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="nav-item"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="nav-item"><i class="fa fa-pinterest"></i></a>
+                <a href="#" class="nav-item"><i class="fa fa-envelope-o"></i></a>
+              </div><!-- .nav-utility -->
+            </div><!-- .col-sm-4 -->
+          </div><!-- .row -->
+        </div><!-- .container -->
+      </div><!-- .topbar -->
+      <!-- end:topbar -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/pages/about">About <span class="sr-only">(current)</span></a></li>
-        <li><a href="/pages/pricing">Pricing</a></li>
+      <!-- begin:site-navigation -->
+      <div class="site-header-affix-wrapper">
+        <header id="masthead" class="site-header" role="banner">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="site-branding">
+                  <h1 class="site-title title-image"><a href="/index.html" rel="home"><img src="/img/img-logo.png" alt="construction business" class="/img-responsive"></a></h1>
+                </div><!-- .site-branding -->
+              </div><!-- .col-sm-3 -->
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/recipes/new">Create Recipes</a></li>          
-            <li><a href="/recipes">Your Recipes</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/foods/new">Add to Fridge</a></li>
-            <li><a href="/foods">Your Fridge</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+              <div class="col-sm-9">
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+                  <button class="menu-toggle" type="button" aria-controls="primary-menu" aria-expanded="false"><span class="pe-7s-menu"></span><span class="sr-only">Primary Menu</span></button>
 
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+                  <div class="menu-testing-menu-container">
+                    <ul id="primary-menu" class="menu nav-menu" aria-expanded="false">
+                      <li class="menu-item current-menu-item"><a href="/index.html">Home</a></li>
+                      <li class="menu-item"><a href="/about.html">About</a></li>
+                      <li class="menu-item menu-item-has-children" aria-haspopup="true"><a href="#">Services</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item current-menu-item"><a href="/service.html">All Services</a></li>
+                          <li class="menu-item"><a href="/service-item.html">Construction Consultant</a></li>
+                          <li class="menu-item"><a href="/service-item.html">General Contracting</a></li>
+                          <li class="menu-item"><a href="/service-item.html">House Renovation</a></li>
+                          <li class="menu-item"><a href="/service-item.html">Construction Management</a></li>
+                          <li class="menu-item"><a href="/service-item.html">Design and Build</a></li>
+                        </ul>
+                      </li>
+                      <li class="menu-item menu-item-has-children" aria-haspopup="true"><a href="#">Features</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item"><a href="/single.html">Single Post</a></li>
+                          <li class="menu-item"><a href="/single-fullwidth.html">Single Post Full Width</a></li>
+                          <li class="menu-item"><a href="/page-fullwidth.html">Page Full Width</a></li>
+                          <li class="menu-item"><a href="/page-sidebar.html">Page With Sidebar</a></li>
+                          <li class="menu-item menu-item-has-children" aria-haspopup="true"><a href="#">Shortcodes</a>
+                            <ul class="sub-menu">
+                              <li class="menu-item"><a href="/alert.html">Alert</a></li>
+                              <li class="menu-item"><a href="/progress.html">Progress Bar</a></li>
+                              <li class="menu-item"><a href="/social.html">Social Icon</a></li>
+                              <li class="menu-item"><a href="/button.html">Button &amp; Label</a></li>
+                              <li class="menu-item"><a href="/accordion.html">Accordion</a></li>
+                              <li class="menu-item"><a href="/tab.html">Tabs</a></li>
+                              <li class="menu-item"><a href="/pricing.html">Pricing</a></li>
+                            </ul>
+                          </li>
+                          <li class="menu-item"><a href="/typography.html">Typography</a></li>
+                          <li class="menu-item"><a href="/404.html">Not Found</a></li>
+                          <li class="menu-item"><a href="/comingsoon.html">Comingsoon</a></li>
+                        </ul>
+                      </li>
+                      <li class="menu-item"><a href="/project.html">Projects</a></li>
+                      <li class="menu-item"><a href="/blog.html">Blog</a></li>
+                      <li class="menu-item"><a href="/contact.html">Contact</a></li>
+                    </ul>
+                  </div>
+                </nav><!-- #site-navigation -->
+              </div><!-- .col-sm-9 -->
+            </div><!-- .row -->
+          </div><!-- .container -->
+        </header><!-- #masthead -->
+      </div><!-- .site-header-affix-wrapper -->
+      <!-- end:site-navigation -->
 
-      <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li><a>Welcome, <%= current_user.name %></a></li>
-          <% end %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="header-caption">
+              <span class="caption-subtitle">Our Service</span>
+              <h2 class="caption-title">We are your best homes, offices renovations and construction solution.</h2>
+              <p>We provide overall planning, coordination and control of a project, so you don’t have to worry about anything. Our promise as a contractor is to build community value into every project while delivering professional expertise.</p>
+              <div class="header-action-button">
+                <a class="btn btn-warning btn-md" href="#">Purchase</a>
+                <a class="btn btn-default btn-bordered  btn-md" href="#">Learn more</a>
+              </div><!-- header-action-button -->
+            </div><!-- .header-caption -->
+          </div><!-- .col-sm-5 -->
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </div><!-- #header -->
+    <!-- end:header -->
 
-        <li><a href="#">Action</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/login">Log In</a></li>
-            <li><a href="/logout">Log Out</a></li>
-            <li><a href="/signup">Create Profile</a></li>
-            <li><a href="/profile/:id">Your Profile</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+        <%= yield %>
 
-    <%= yield %>
+    <!-- begin:footer -->
+    <footer id="colophon" class="site-footer bg-black" role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <section class="widget">
+              <img src="/img/img-logo-footer.png" alt="bootstrap theme for construction companies" class="/img-responsive marg-20-btm marg-20-top">
+              <p>Construction company based on Orange, California. Construction was very sufficient in maintaining the integrity of project in terms of planning, scheduling, cost and quality.</p>
+            </section><!-- .widget -->
+          </div><!-- .col-## -->
+
+          <div class="col-md-2 col-sm-6 col-md-offset-1 col-sm-offset-0">
+            <section class="widget">
+              <h3 class="widget-title">Our Company</h3>
+              <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Selected Work</a></li>
+                <li><a href="#">Get in touch</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </section><!-- .widget -->
+          </div><!-- .col-## -->
+
+          <div class="col-md-3 col-sm-6">
+            <section class="widget">
+              <h3 class="widget-title">Our Services</h3>
+              <ul>
+                <li><a href="#">Metal Roofting</a></li>
+                <li><a href="#">Green Building</a></li>
+                <li><a href="#">Construction Consultant</a></li>
+                <li><a href="#">Construction Management</a></li>
+                <li><a href="#">General Contracting</a></li>
+              </ul>
+            </section><!-- .widget -->
+          </div><!-- .col-## -->
+
+          <div class="col-md-3 col-sm-6">
+            <section class="widget">
+              <h3 class="widget-title">Our Contact</h3>
+              <p>5252 E Walnut Ave, Orange, California, United States.</p>
+              <p>hello@construction.me<br>+62 (0) 274 441 5005</p>
+            </section>
+          </div><!-- .col-## -->
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </footer><!-- #colophon -->
+    <!-- end:footer -->
+
+    <!-- begin:copyright -->
+    <section id="copyright" class="copyright bg-black">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 copy-left">
+            <p>Copyright &copy; 2016 <a href="/http://templateninja.net"><strong>TemplateNinja</strong></a>. All Right Reserved.</p>
+          </div><!-- .col-sm-6 -->
+
+          <div class="col-sm-6 copy-right">
+            <ul class="social-icon">
+              <li><a href="#" target="_blank" class="icon-twitter"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" target="_blank" class="icon-facebook"><i class="fa fa-facebook-square"></i></a></li>
+              <li><a href="#" target="_blank" class="icon-youtube"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="#" target="_blank" class="icon-instagram"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div><!-- .col-sm-6 -->
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </section><!-- #copyright -->
+    <!-- begin:copyright -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/plugins/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/parallax.min.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/plugins/jquery.easing.js"></script>
+    <script src="/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/plugins/isotope.pkgd.min.js"></script>
+    <script src="/plugins/owl.carousel.min.js"></script>
+    <script src="/js/script.min.js"></script>
   </body>
 </html>
+

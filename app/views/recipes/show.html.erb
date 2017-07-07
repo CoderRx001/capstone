@@ -17,4 +17,9 @@
   <% end %>
 </ol>
 
+<h3>Recipe VS foods</h3>
+<p><%= "#{@ingredients.count} / #{@intersection_count}" %></p>
+
+<%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %> |
+
 <%= link_to "Delete", "/recipes/#{ @recipe.id }", method: :delete, class: "btn btn-danger" %>

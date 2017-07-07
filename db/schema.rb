@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621210727) do
+ActiveRecord::Schema.define(version: 20170702131444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20170621210727) do
     t.string "expiration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "pantry_items", force: :cascade do |t|
@@ -38,11 +46,12 @@ ActiveRecord::Schema.define(version: 20170621210727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
-    t.string "ingredients"
     t.string "directions"
     t.string "image_url"
     t.integer "prep_time"
     t.integer "user_id"
+    t.bigint "food_id"
+    t.index ["food_id"], name: "index_recipes_on_food_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +62,6 @@ ActiveRecord::Schema.define(version: 20170621210727) do
     t.string "password_digest"
   end
 
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipes", "foods"
 end
