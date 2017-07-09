@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # namespace :v1 do
+    
 
   get '/' => 'pages#index'
   get '/pages/:page' => 'pages#show'
@@ -42,5 +44,6 @@ Rails.application.routes.draw do
   patch '/profile:id' => 'profile#update'
   delete '/profile/:id' => 'profile#destroy'
 
+  # end
 end
 

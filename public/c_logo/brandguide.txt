@@ -1,0 +1,5 @@
+Main Text Font: Devious 
+Slogan Text Font: Liberator Medium 
+Monogram Text Font: Sharktooth 
+Color HEX: #f07631 
+Color HSL: 9.18032786885 90.5882352941 54.7058823529 
