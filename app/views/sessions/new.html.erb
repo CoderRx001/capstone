@@ -1,16 +1,28 @@
-<h1>Log In</h1>
 
-  <%= form_tag "/login", method: :post do %>
-    
-    <div>
-      <%= label_tag :email %>
-      <%= email_field_tag :email %>
-    </div>
 
-     <div>
-      <%= label_tag :password %>
-      <%= text_field_tag :password %>
-    </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="header-caption">
+        <span class="caption-subtitle">Log In</span>
+        <h2 class="caption-title">Enter your Profile</h2>
 
-    <%= submit_tag "Log in" %>
-<% end %>
+        <%= form_tag "/login", method: :post do %>
+          
+          <div>
+            <%= email_field_tag :email %>
+            <%= label_tag :email %>
+          </div>
+
+           <div>
+            <%= text_field_tag :password %>
+            <%= label_tag :password %>
+          </div>
+
+          <%= submit_tag "Log in" %>
+        <% end %>
+        
+      </div><!-- .header-caption -->
+    </div><!-- .col-sm-5 -->
+  </div><!-- .row -->
+</div><!-- .container -->

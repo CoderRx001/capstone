@@ -1,25 +1,38 @@
-<h1>Sign Up</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="header-caption">
+        <span class="caption-subtitle">Sign Up Below</span>
+        <h2 class="caption-title">Create a Profile</h2>
+        <%= form_tag "/users", method: :post do %>
+          <div>
+            <%= text_field_tag :name %>
+            <%= label_tag :name %> 
+          </div>
 
-<%= form_tag "/users", method: :post do %>
-  <div>
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
-  </div>
+          <div>
+            <%= email_field_tag :email %>
+            <%= label_tag :email %>
+          </div>
 
-  <div>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
-  </div>
+          <div>
+            <%= text_field_tag :password %>
+            <%= label_tag :password %>
+          </div>
 
-  <div>
-    <%= label_tag :password %>
-    <%= text_field_tag :password %>
-  </div>
+          <div>
+            <%= password_field_tag :password_confirmation %>
+            <%= label_tag :password_confirmation %>
+          </div>
 
-  <div>
-    <%= label_tag :password_confirmation %>
-    <%= password_field_tag :password_confirmation %>
-  </div>
-
-  <%= submit_tag "Sign Up" %>
-<% end %> 
+          <%= submit_tag "Sign Up" %>
+          <% end %> 
+        
+        <div class="header-action-button">
+          <a class="btn btn-warning btn-md" href="#">Create an account</a>
+          <a class="btn btn-default btn-bordered  btn-md" href="#">Log In</a>
+        </div><!-- header-action-button -->
+      </div><!-- .header-caption -->
+    </div><!-- .col-sm-5 -->
+  </div><!-- .row -->
+</div><!-- .container -->

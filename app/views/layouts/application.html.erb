@@ -7,7 +7,7 @@
     <meta name="description" content="construction is awesome bootstrap responsive construction business theme">
     <meta name="keywords" content="construction, business, construction business, responsive, parallax, business theme">
     <link rel="shortcut icon" type="image/png" data-image-src="c_logo/Social_Media_Assets/favicon/favicon_symbol_inverse.png">
-    
+
     <meta name="author" content="templateninja">
     <title>;-P Cornucopia</title>
 
@@ -45,9 +45,17 @@
           <div class="row">
             <div class="col-sm-8">
               <div class="nav-utility">
+              <% if current_user %>
                 <span class="nav-item">Your source for maintaining your budget on food and recipes.</span>
+              <% end %>
+               
+                
+              
               </div><!-- .nav-utility -->
             </div><!-- .col-sm-8 -->
+
+
+
             <div class="col-sm-4 hidden-xs">
               <div class="nav-utility nav-right">
                 <a href="#" class="nav-item"><i class="fa fa-twitter"></i></a>
@@ -83,20 +91,18 @@
                       <li class="menu-item"><a href="/pages/about">About</a></li>
                       <li class="menu-item menu-item-has-children" aria-haspopup="true"><a href="#">Services</a>
                         <ul class="sub-menu">
-                          <li class="menu-item current-menu-item"><a href="/service.html">All Services</a></li>
-                          <li class="menu-item"><a href="/service-item.html">Construction Consultant</a></li>
-                          <li class="menu-item"><a href="/service-item.html">General Contracting</a></li>
-                          <li class="menu-item"><a href="/service-item.html">House Renovation</a></li>
-                          <li class="menu-item"><a href="/service-item.html">Construction Management</a></li>
-                          <li class="menu-item"><a href="/service-item.html">Design and Build</a></li>
+                          <li class="menu-item"><a href="/recipes/new">Create Recipes</a></li>
+                          <li class="menu-item"><a href="/recipes">Your Recipes</a></li>
+                          <li class="menu-item"><a href="/foods/new">Add to Fridge</a></li>
+                          <li class="menu-item"><a href="/foods">Your Fridge</a></li>
                         </ul>
                       </li>
                       <li class="menu-item menu-item-has-children" aria-haspopup="true"><a href="#">Features</a>
                         <ul class="sub-menu">
-                          <li class="menu-item"><a href="/single.html">Single Post</a></li>
-                          <li class="menu-item"><a href="/single-fullwidth.html">Single Post Full Width</a></li>
-                          <li class="menu-item"><a href="/page-fullwidth.html">Page Full Width</a></li>
-                          <li class="menu-item"><a href="/page-sidebar.html">Page With Sidebar</a></li>
+                          <li class="menu-item"><a href="/login">Log In</a></li>
+                          <li class="menu-item"><a href="/logout">Log Out</a></li>
+                          <li class="menu-item"><a href="/signup">Create Profile</a></li>
+                          <li class="menu-item"><a href="/profile/:id">Your Profile</a></li>
                           <li class="menu-item menu-item-has-children" aria-haspopup="true"><a href="#">Shortcodes</a>
                             <ul class="sub-menu">
                               <li class="menu-item"><a href="/alert.html">Alert</a></li>
@@ -125,6 +131,15 @@
         </header><!-- #masthead -->
       </div><!-- .site-header-affix-wrapper -->
       <!-- end:site-navigation -->
+
+      <div class="container">
+        <% flash.each do |name, message| %>
+          <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+            <button type ="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
+            <%= message  %>
+          </div>
+          <% end %>
+      </div>
 
       <div class="container">
         <div class="row">
@@ -210,7 +225,6 @@
               <li><a href="#" target="_blank" class="icon-twitch"><i class="fa fa-twitch" aria-hidden="true"></i></a>
               <li><a href="#" target="_blank" class="icon-linkedin"><i class="fa fa-linkedin"></i></a>
               <li><a href="#" target="_blank" class="icon-medium"><i class="fa fa-medium"></i></a>
-
               </li>
             </ul>
           </div><!-- .col-sm-6 -->
@@ -234,4 +248,3 @@
     <script src="/js/script.min.js"></script>
   </body>
 </html>
-

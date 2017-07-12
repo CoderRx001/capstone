@@ -41,4 +41,30 @@ class Recipe < ApplicationRecord
       @ingredient_names.split(",").map { |name| self.ingredients.where(name: name.strip).first_or_create! }
     end
   end
+
 end
+=begin
+  def submitted_recipe
+  payload = {
+    key: ENV["SPOONACULAR_KEY"],
+    accept_json: true,
+    content_json: true,
+    params: recipe_params,
+    uri: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/cuisine"
+  }
+  
+  resp = Spoonacular.post(payload)
+  
+  recipe_value = JSON.parse(resp.body)
+  
+  recipe = Recipe.new(recipe_value)
+  recipe.user = current_user
+  recipe.save
+end
+
+private 
+
+def recipe_params
+  params.require(recipe).permit(:ingredients, :title)
+end
+=end  

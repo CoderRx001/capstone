@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   end
     helper_method :current_user
 
-  def admin_singed_in?
-    current_user && current_user.admin 
-  end
+  # def admin_singed_in?
+  #   current_user && current_user.admin 
+  # end
   
 end

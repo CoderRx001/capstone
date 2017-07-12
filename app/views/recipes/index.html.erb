@@ -1,12 +1,16 @@
 <div class="row">
-  <h1>Your Recipes</h1> 
+  <h1> Your Recipes</h1> 
 
   <% @recipes.each do |recipe| %>
     <div class="col-md-4">
       <div class="thumbnail well">
       <h2><%= link_to recipe.title, recipe_path(recipe) %></a></h2>
       <img src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
-      <h3><%= recipe.ingredients %></h3>
+  
+    <% recipe.ingredients.each do |ingredient| %>
+      <p><%= ingredient.name %></p>
+    <% end %>
+  
       <h3><%= recipe.directions %></h3>
       </div>
     </div>

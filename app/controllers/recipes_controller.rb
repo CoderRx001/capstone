@@ -43,7 +43,7 @@ class RecipesController < ApplicationController
     redirect_to "/"
   end
 
-  private
+private
 
   def recipe_params
     params.permit(:title, :image, :ingredient_names, :directions, :prep_time, :user_id)
@@ -53,4 +53,5 @@ class RecipesController < ApplicationController
   def load_recipe
     @recipe = Recipe.find(params[:id])
   end
+
 end
