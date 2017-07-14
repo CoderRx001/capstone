@@ -7,6 +7,17 @@ class RecipesController < ApplicationController
       if sort_attribute
         @recipes = Recipe.all.order(sort_attribute)
       end
+      
+    
+
+      # @response = Unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?q=salmon+with+fusilli+and+no+nuts',
+      #   headers:{
+      #     "X-Mashape-Key" => "JUB17IbNrqmshd3XhTaboJ4q0cUup1oyk7ajsnCmRfWhZ3q6OG"
+      #     # "Content-Type" => "application/json",
+      #     # "Accept" => "application/json"
+      #   }
+      # ).body.parse
+
   end
 
 
@@ -23,6 +34,7 @@ class RecipesController < ApplicationController
   def show
     @ingredients = @recipe.ingredients
     @foods = Food.all
+    @intersection = (@ingredients.pluck(:name) & @foods.pluck(:item_name))
     @intersection_count = (@ingredients.pluck(:name) & @foods.pluck(:item_name)).count
   end
 
@@ -42,6 +54,8 @@ class RecipesController < ApplicationController
     flash[:warning] = "Recipe Destroyed"
     redirect_to "/"
   end
+
+
 
 private
 

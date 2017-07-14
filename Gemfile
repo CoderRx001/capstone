@@ -26,6 +26,13 @@ gem 'jquery-rails'
 gem 'unirest'
 gem 'spoonacular'
 
+gem 'google-api-client'
+
+gem 'addressable', '~> 2.3.8'
+gem 'allrecipes'
+
+gem 'nokogiri'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

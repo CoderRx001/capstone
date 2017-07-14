@@ -1,6 +1,7 @@
 <div class="row">
   <h1> Your Recipes</h1> 
 
+  <% recipes = Recipe.all %>
   <% @recipes.each do |recipe| %>
     <div class="col-md-4">
       <div class="thumbnail well">
@@ -10,9 +11,36 @@
     <% recipe.ingredients.each do |ingredient| %>
       <p><%= ingredient.name %></p>
     <% end %>
-  
+    
+
       <h3><%= recipe.directions %></h3>
       </div>
     </div>
   <% end %>
+
+
 </div>
+
+    <% require 'nokogiri'
+       require 'open-uri'
+
+      # Fetch and parse HTML document
+      doc = Nokogiri::HTML(open('http://www.bhg.com/recipe/chicken/buffalo-chicken-drumsticks-with-blue-cheese-dip/'))
+
+      puts "### Search for nodes by css"
+      doc.css('h2.recipe__subHeading').each do |link|
+        Title.create(title:link.content)
+
+      puts "### Search for nodes by css"
+      doc.css('h2.recipe__subHeading').each do |link|
+        Image_url.create(image_url:link.content)
+
+      puts "### Search for nodes by css"
+      doc.css('div.recipe__ingredientContainer').each do |link|
+        Ingredient.create(name:link.content)
+
+      puts "### Search for nodes by css"
+      doc.css('div.recipe__directionsContainer').each do |link|
+        Direction.create(direction:link.content)
+
+      end %>

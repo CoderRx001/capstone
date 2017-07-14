@@ -10,6 +10,8 @@ class FoodsController < ApplicationController
     if category
       @foods = Category.find_by(name: category).foods
     end
+
+
   end
 
   def new

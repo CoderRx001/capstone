@@ -13,3 +13,47 @@
     { category: "Fruit", item_name: "grapefruit", item_number: 2, expiration: "June 28",},
     { category: "Vegetable", item_name: "cucumber", item_number: 3, expiration: "June 29",},
   ])
+
+require 'nokogiri'
+require 'open-uri'
+# Fetch and parse HTML document
+doc = Nokogiri::HTML(open('http://www.bhg.com/recipe/chicken/buffalo-chicken-drumsticks-with-blue-cheese-dip/'))
+
+puts "### Search for nodes by css"
+doc.css('h2.recipe__subHeading').each do |link|
+Title.create(title:link.content)
+
+puts "### Search for nodes by css"
+doc.css('h2.recipe__subHeading').each do |link|
+Image_url.create(image_url:link.content)
+
+puts "### Search for nodes by css"
+doc.css('div.recipe__ingredientContainer').each do |link|
+Ingredient.create(name:link.content)
+
+puts "### Search for nodes by css"
+doc.css('div.recipe__directionsContainer').each do |link|
+Direction.create(direction:link.content)
+
+
+require 'nokogiri'
+require 'open-uri'
+# Fetch and parse HTML document
+doc = Nokogiri::HTML(open('http://www.bhg.com/recipe/chicken/chicken-and-asparagus-skillet-supper/'))
+
+puts "### Search for nodes by css"
+doc.css('h2.recipe__subHeading').each do |link|
+Title.create(title:link.content)
+
+puts "### Search for nodes by css"
+doc.css('h2.recipe__subHeading').each do |link|
+Image_url.create(image_url:link.content)
+
+puts "### Search for nodes by css"
+doc.css('div.recipe__ingredientContainer').each do |link|
+Ingredient.create(name:link.content)
+
+puts "### Search for nodes by css"
+doc.css('div.recipe__directionsContainer').each do |link|
+Direction.create(direction:link.content)
+

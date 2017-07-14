@@ -1,3 +1,4 @@
+require 'colorize'
 
 <h2><%= @recipe.title %></h2>
 
@@ -6,7 +7,11 @@
 <h3>Ingredients</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %></li>
+      <% if @intersection.include? ingredient.name  %>
+        <li><%= highlight(ingredient.name,ingredient.name) %></li>
+      <% else %>
+        <li><%= ingredient.name %></li>
+      <% end %>
     <% end %>
   </ul>
 
@@ -20,7 +25,7 @@
 
 <h3>Recipe VS foods</h3>
 <p><%= "#{@ingredients.count} / #{@intersection_count}" %></p>
-<%if item_name is in "#{@ingredients.count}"
+
 
 <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %> |
 

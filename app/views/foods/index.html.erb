@@ -5,7 +5,8 @@
     <div class="col-md-4">
       <div class="thumbnail well">
       <h2><%= link_to food.item_name, food_path(food) %></a></h2>
-    <h3><%= food.category %></h3>
+      
+      <h3><%= food.category %></h3>
       <h3><%= food.item_name %></h3>
       <h3><%= food.item_number %></h3>
       <h3><%= food.expiration %></h3>
@@ -13,4 +14,6 @@
     </div>
 
   <% end %>
+
+
 </div>
