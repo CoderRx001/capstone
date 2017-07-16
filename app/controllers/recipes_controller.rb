@@ -7,8 +7,6 @@ class RecipesController < ApplicationController
       if sort_attribute
         @recipes = Recipe.all.order(sort_attribute)
       end
-      
-    
 
       # @response = Unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?q=salmon+with+fusilli+and+no+nuts',
       #   headers:{
@@ -17,7 +15,6 @@ class RecipesController < ApplicationController
       #     # "Accept" => "application/json"
       #   }
       # ).body.parse
-
   end
 
 

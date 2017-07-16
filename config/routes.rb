@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'calendar/show'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html    
 
   get '/' => 'pages#index'
@@ -25,6 +27,14 @@ Rails.application.routes.draw do
   # get '/foods/:id/edit' => 'foods#edit'
   # patch '/foods/:id' => 'foods#update'
   # delete '/foods/:id' => 'foods#destroy' 
+
+  resources :users
+  # get '/users/:id' => 'users#show'
+  # get 'users/:id/edit', to: "users#edit", as: "edit_user"
+  # patch 'users/:id', to: "users#update"
+
+  resource :calendar, only: [:show], controller: :calendar
+  root to: "calendar#show"
 
   #
 

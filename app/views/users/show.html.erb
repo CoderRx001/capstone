@@ -1,0 +1,64 @@
+<h1> - Profile - </h1>
+
+<div class="row">
+  <div class="col-md-5 col-sm-12">
+    <h1>User Name: <%=@user.name%></h1>
+    <h2>User Email: <%= @user.email %></h2>
+    <p>Bio: <%= @user.bio %></p>
+    <% if current_user.id == @user.id %>
+      <p><a href="<%=edit_user_path(@user.id)%>" class="btn btn-primary" role="button">Edit Profile</a></p>
+      <%= link_to "Delete", "/users/#{@user.id}", method: :delete, class: "btn btn-danger"%>
+    <% end %>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CalendarExample</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "http://yandex.st/bootstrap/3.0.2/css/bootstrap.min.css", media: "all" %>
+    <%= javascript_include_tag "http://yandex.st/bootstrap/3.0.2/js/bootstrap.min.js" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Meals', 'Portions per Day'],
+          ['Carbs', 11],
+          ['vegetables', 2],
+          ['fruits', 2],
+          ['Sweets', 2],
+          ['Meat', 7]
+        ]);
+
+        var options = {
+          title: 'Contents of Meals for the last 7 days.',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 1150px; height: 500px;"></div>
+  </body>
+</html>
+
+<%= render partial: "shared/calendar" %>

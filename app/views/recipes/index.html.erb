@@ -20,27 +20,3 @@
 
 
 </div>
-
-    <% require 'nokogiri'
-       require 'open-uri'
-
-      # Fetch and parse HTML document
-      doc = Nokogiri::HTML(open('http://www.bhg.com/recipe/chicken/buffalo-chicken-drumsticks-with-blue-cheese-dip/'))
-
-      puts "### Search for nodes by css"
-      doc.css('h2.recipe__subHeading').each do |link|
-        Title.create(title:link.content)
-
-      puts "### Search for nodes by css"
-      doc.css('h2.recipe__subHeading').each do |link|
-        Image_url.create(image_url:link.content)
-
-      puts "### Search for nodes by css"
-      doc.css('div.recipe__ingredientContainer').each do |link|
-        Ingredient.create(name:link.content)
-
-      puts "### Search for nodes by css"
-      doc.css('div.recipe__directionsContainer').each do |link|
-        Direction.create(direction:link.content)
-
-      end %>

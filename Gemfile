@@ -29,9 +29,10 @@ gem 'spoonacular'
 gem 'google-api-client'
 
 gem 'addressable', '~> 2.3.8'
-gem 'allrecipes'
 
 gem 'nokogiri'
+
+gem 'figaro'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

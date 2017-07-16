@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702131444) do
+ActiveRecord::Schema.define(version: 20170716150245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170702131444) do
     t.integer "prep_time"
     t.integer "user_id"
     t.bigint "food_id"
+    t.string "ingredients"
     t.index ["food_id"], name: "index_recipes_on_food_id"
   end
 
@@ -60,6 +61,8 @@ ActiveRecord::Schema.define(version: 20170702131444) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "bio", default: "No bio"
+    t.string "img", default: "No picture"
   end
 
   add_foreign_key "ingredients", "recipes"
