@@ -42,11 +42,12 @@ class Recipe < ApplicationRecord
     end
   end
 
-end
+  def recipe_params
+    params.require(recipe).permit(:ingredients, :title)
+  end
 
+  def self.search(search)
+    where("title LIKE ? OR ingredients LIKE ? OR cooking_instructions LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+  end
 
-private 
-
-def recipe_params
-  params.require(recipe).permit(:ingredients, :title)
 end

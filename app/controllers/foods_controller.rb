@@ -11,7 +11,17 @@ class FoodsController < ApplicationController
       @foods = Category.find_by(name: category).foods
     end
 
+    if params[:search]
+      @foods = Food.search(params[:search]).order("created_at DESC")
+    else
+      @foods = Food.all.order("created_at DESC")
+    end
+  end
 
+  def search
+    @foods = "%#{params[:query]}%"
+
+    render 'index'
   end
 
   def new

@@ -1,6 +1,16 @@
 <div class="row">
 <h1>Your Current Items</h1>
 
+
+  <%= form_tag(foods_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Food" %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+  <% if @foods.blank? %>
+    <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+  <% end %>
+
   <% @foods.each do |food| %>
     <div class="col-md-4">
       <div class="thumbnail well">
@@ -15,5 +25,5 @@
 
   <% end %>
 
-
+  
 </div>
