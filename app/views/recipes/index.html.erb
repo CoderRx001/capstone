@@ -1,4 +1,6 @@
 <div class="row">
+  <div class="col-md-11 col-sm-offset-1">
+
   <h1> Your Recipes</h1> 
 
   <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
@@ -14,18 +16,12 @@
   <% @recipes.each do |recipe| %>
     <div class="col-md-4">
       <div class="thumbnail well">
-      <h2><%= link_to recipe.title, recipe_path(recipe) %></a></h2>
-      <img src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
-  
-    <% recipe.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %></p>
-    <% end %>
-    
-
-      <h3><%= recipe.directions %></h3>
+        <h2><%= link_to recipe.title, recipe_path(recipe) %></a></h2>
+        <img src="<%= recipe.image_url %>" alt="<%= recipe.title %>">
+        <h3><%= recipe.directions %></h3>
       </div>
     </div>
   <% end %>
 
-  
+</div>  
 </div>

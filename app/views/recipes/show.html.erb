@@ -1,4 +1,7 @@
-require 'colorize'
+<!-- require 'colorize'
+ -->
+<div class="ingredients">
+  
 
 <h2><%= @recipe.title %></h2>
 
@@ -6,12 +9,12 @@ require 'colorize'
 
 <h3>Ingredients</h3>
   <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
+    <% @ingredients.each do |ingredient| %>
       <% if @intersection.include? ingredient.name  %>
         <li><%= highlight(ingredient.name,ingredient.name) %></li>
       <% else %>
         <li><%= ingredient.name %></li>
-      <% end %>
+       <% end %>
     <% end %>
   </ul>
 
@@ -23,10 +26,12 @@ require 'colorize'
   <% end %>
 </ol>
 
-<h3>Recipe VS foods</h3>
-<p><%= "#{@ingredients.count} / #{@intersection_count}" %></p>
+<h3>Your foods v Recipe</h3>
+<p><%= "#{@intersection_count} / #{@ingredients.count}" %></p>
 
 
 <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %> |
 
 <%= link_to "Delete", "/recipes/#{ @recipe.id }", method: :delete, class: "btn btn-danger" %>
+
+</div> 

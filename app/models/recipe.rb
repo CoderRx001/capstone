@@ -1,18 +1,10 @@
 class Recipe < ApplicationRecord
-  has_many :ingredients
+  include Searchable
+
   belongs_to :food, optional: true
 
-  attr_accessor :ingredient_names
-
-  before_save :save_ingredient_names
-
-  def ingredient_list
-    ingredients.split(", ")
-  end
-
-  def directions_list
-    directions.split(", ")
-  end
+  has_many :ingredients
+ 
 
   def friendly_updated_at
     updated_at.strftime('%b %d, %Y')
@@ -36,6 +28,7 @@ class Recipe < ApplicationRecord
 
   private 
 
+# this wont work because you are using a string not the join table
   def save_ingredient_names
     if @ingredient_names
       @ingredient_names.split(",").map { |name| self.ingredients.where(name: name.strip).first_or_create! }
@@ -46,8 +39,5 @@ class Recipe < ApplicationRecord
     params.require(recipe).permit(:ingredients, :title)
   end
 
-  def self.search(search)
-    where("title LIKE ? OR ingredients LIKE ? OR cooking_instructions LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
-  end
 
 end

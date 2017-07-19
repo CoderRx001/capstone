@@ -1,21 +1,3 @@
 <h1>New Recipe</h1>
 
-<%= form_tag "/recipes", method: :post do %>
-  <div>
-    Title: <input type="text" name="title">
-  </div>
-  <div>    
-    Image: <input type="url" image="image_url">
-  </div>
-  <div>
-    Ingredients: <input type="text" name="ingredients">
-  </div>
-  <div>
-    Directions: <input type="text" name="directions">
-  </div>
-  <div>
-    Prep Time: <input type="integer" name="prep_time">
-  </div>
-
-  <input type="submit" value="Create Recipe">
-<% end %>
+<%= render 'form' %>

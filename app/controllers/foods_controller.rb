@@ -1,27 +1,8 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Food.all 
-    sort_attribute = params[:sort]
-    sort_order = params[:sort_order]
-    search_term = params[:search_term]
-    category =params[:category]
-
-    if category
-      @foods = Category.find_by(name: category).foods
-    end
-
-    if params[:search]
-      @foods = Food.search(params[:search]).order("created_at DESC")
-    else
-      @foods = Food.all.order("created_at DESC")
-    end
-  end
-
-  def search
-    @foods = "%#{params[:query]}%"
-
-    render 'index'
+    # params[:q] then its a search
+    @foods = params[:search].present? ? Food.search(%w(item_name), params[:search]) : Food.all
   end
 
   def new

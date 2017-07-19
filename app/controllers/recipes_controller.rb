@@ -2,25 +2,7 @@ class RecipesController < ApplicationController
   before_action :load_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
-    sort_attribute = params[:sort]
-      if sort_attribute
-        @recipes = Recipe.all.order(sort_attribute)
-      end
-
-      # @response = Unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?q=salmon+with+fusilli+and+no+nuts',
-      #   headers:{
-      #     "X-Mashape-Key" => "JUB17IbNrqmshd3XhTaboJ4q0cUup1oyk7ajsnCmRfWhZ3q6OG"
-      #     # "Content-Type" => "application/json",
-      #     # "Accept" => "application/json"
-      #   }
-      # ).body.parse
-
-      if params[:search]
-        @recipes = Recipe.search(params[:search]).order("created_at DESC")
-      else
-        @recipes = Recipe.all.order("created_at DESC")
-      end
+    @recipes = params[:search].present? ? Recipe.search(%w(ingredients directions title), params[:search]) : Recipe.all
   end
 
 
@@ -37,7 +19,11 @@ class RecipesController < ApplicationController
   def show
     @ingredients = @recipe.ingredients
     @foods = Food.all
+    puts "@ingredients.pluck(:name): #{@ingredients.pluck(:name).inspect}"
+    puts "@foods.pluck(:item_name): #{@foods.pluck(:item_name).inspect}"
     @intersection = (@ingredients.pluck(:name) & @foods.pluck(:item_name))
+    puts "@intersection.count: #{@intersection.count}"
+    puts "@intersection: #{@intersection.inspect}"
     @intersection_count = (@ingredients.pluck(:name) & @foods.pluck(:item_name)).count
   end
 

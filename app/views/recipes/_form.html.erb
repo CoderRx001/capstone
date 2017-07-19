@@ -1,0 +1,21 @@
+<div class="col-md-6 col-md-offset-3">
+<%= form_for @recipe do |f| %>
+  <div>
+    Title: <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div>
+    Image url: <%= f.text_field :image_url, class: 'form-control' %>
+  </div>
+  <div>
+    Ingredients: <%= f.text_field :ingredients, class: 'form-control' %>
+  </div>
+  <div>
+    Directions: <%= f.text_field :directions, class: 'form-control' %>
+  </div>
+  <div>
+    Prep Time: <%= f.text_field :prep_time, class: 'form-control' %>
+  </div>
+  <%= f.submit class: 'form-control btn btn-primary' %>
+<% end %>
+</div>

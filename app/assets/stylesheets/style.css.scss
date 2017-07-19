@@ -35,10 +35,30 @@ body {
     background-color: grey;
 }
 
-rcorners1 {
+img.index-images{
   border-radius: 25px;
-  background: #73AD21;
+  background: #f0ad4e;
   padding: 20px; 
-  width: 100px;
-  height: 100px;    
+  width: 600px;
+  height: 350px;    
+}
+p.welcome{
+  border-radius: 25px;
+  background: #f0ad4e;
+  padding: 20px; 
+  width: 600px;
+  height: 350px;    
+}
+
+h2.index-h2 {
+    border: 1px solid black;
+    background-color: #f0ad4e;
+    padding: 10px;
+    margin: 0 70px 0 0;
+    text-align: center;
+}
+
+.ingredients {
+  width: 80%;
+  margin: 0 auto;
 }
