@@ -1,4 +1,13 @@
-# README
+
+
+  # README
+
+  This was my creation for my capstone project at Actualize. 
+
+  A recipe tracking app that could have had the potential to connect to social media and scrape from other sites. 
+<br>
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
